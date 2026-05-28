@@ -28,6 +28,10 @@ var coins = 0
 
 # Functions
 
+func _ready() -> void:
+	rotation_direction = rotation.y
+
+
 func _physics_process(delta):
 
 	# Handle functions
