@@ -13,6 +13,7 @@ signal coin_collected
 var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = 0
+var respawn_position: Vector3
 
 var previously_floored = false
 
@@ -30,6 +31,7 @@ var coins = 0
 
 func _ready() -> void:
 	rotation_direction = rotation.y
+	respawn_position = global_position
 
 
 func _physics_process(delta):
@@ -61,7 +63,7 @@ func _physics_process(delta):
 	# Falling/respawning
 
 	if position.y < -10:
-		get_tree().reload_current_scene()
+		respawn()
 
 	# Animation for scale (jumping and landing)
 
@@ -159,6 +161,20 @@ func jump():
 		jump_double = allow_double_jump;
 	else:
 		jump_double = false;
+
+
+func set_checkpoint(new_position: Vector3) -> void:
+	respawn_position = new_position
+
+
+func respawn() -> void:
+	global_position = respawn_position
+	velocity = Vector3.ZERO
+	movement_velocity = Vector3.ZERO
+	gravity = 0
+	jump_single = true
+	jump_double = false
+	previously_floored = false
 
 # Collecting coins
 

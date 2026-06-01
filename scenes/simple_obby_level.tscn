@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="6_s2nq7"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="8_wonx1"]
 [ext_resource type="PackedScene" uid="uid://dtjvjdjl8cs6e" path="res://models/flag.glb" id="9_7rrmb"]
+[ext_resource type="PackedScene" uid="uid://dtu6a6xa3u33d" path="res://objects/checkpoint_platform_large_round.tscn" id="12_icp2j"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="13_cr8oy"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="14_qfgtv"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="15_yca78"]
@@ -49,11 +50,8 @@ transform = Transform3D(0.996134, 0, 0.0878512, 0, 1, 0, -0.0878512, 0, 0.996134
 [node name="obstacle-01-platform-02" parent="World" unique_id=1031141547 instance=ExtResource("6_s2nq7")]
 transform = Transform3D(0.995121, 0, 0.0986598, 0, 1, 0, -0.0986598, 0, 0.995121, -7.9046946, 0.35400248, -0.3445325)
 
-[node name="checkpoint-01-platform" parent="World" unique_id=853556179 instance=ExtResource("8_wonx1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.478886, 1, -0.069766045)
-
-[node name="checkpoint-01-flag" parent="World" unique_id=1913460614 instance=ExtResource("9_7rrmb")]
-transform = Transform3D(0.99522436, 0, 0.097617656, 0, 1, 0, -0.097617656, 0, 0.99522436, -12.152619, 1.5051045, 0.7743528)
+[node name="platform-grass-large-round" parent="World" unique_id=1656211538 instance=ExtResource("12_icp2j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.336241, 1.0222864, 0.11612797)
 
 [node name="obstacle-02-platform-01" parent="World" unique_id=299750118 instance=ExtResource("6_s2nq7")]
 transform = Transform3D(0.9848077, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848077, -16.75, 1.25, 1.75)
