@@ -62,11 +62,8 @@ transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258
 [node name="obstacle-02-platform-03" parent="World" unique_id=959310697 instance=ExtResource("6_s2nq7")]
 transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -24.75, 1.95, 1.15)
 
-[node name="checkpoint-02-platform" parent="World" unique_id=437276030 instance=ExtResource("8_wonx1")]
+[node name="checkpoint-02-platform" parent="World" unique_id=437276030 instance=ExtResource("12_icp2j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.25, 2.2, 0)
-
-[node name="checkpoint-02-flag" parent="World" unique_id=232113668 instance=ExtResource("9_7rrmb")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -28.9, 2.705, 0.85)
 
 [node name="obstacle-03-platform-01" parent="World" unique_id=1239226984 instance=ExtResource("6_s2nq7")]
 transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, -33.5, 2.55, -2.15)
