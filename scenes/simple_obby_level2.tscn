@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="9_u3j2h"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="10_nxxkc"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="11_0f1vt"]
+[ext_resource type="PackedScene" uid="uid://dtu6a6xa3u33d" path="res://objects/checkpoint_platform_large_round.tscn" id="12_xnyp4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
 font = ExtResource("11_0f1vt")
@@ -52,20 +53,11 @@ transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -6.8, 0.
 [node name="curve-hop-03" parent="World" unique_id=299750118 instance=ExtResource("6_6duhy")]
 transform = Transform3D(0.9848077, 0, -0.1736482, 0, 1, 0, 0.1736482, 0, 0.9848077, -10.1, 0.8, 2.1)
 
-[node name="checkpoint-01-platform" parent="World" unique_id=853556179 instance=ExtResource("7_imh5h")]
+[node name="checkpoint-01-platform" parent="World" unique_id=853556179 instance=ExtResource("12_xnyp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8, 1.15, -1.4)
-
-[node name="checkpoint-01-flag" parent="World" unique_id=1913460614 instance=ExtResource("8_7xo47")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -12.35, 1.655, -0.55)
 
 [node name="fake-side-hop" parent="World" unique_id=1546617949 instance=ExtResource("6_6duhy")]
 transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, -9.5, 1.3, -5.2)
-
-[node name="fake-side-island" parent="World" unique_id=548771794 instance=ExtResource("7_imh5h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1.55, -8.5)
-
-[node name="fake-side-flag" parent="World" unique_id=82759479 instance=ExtResource("8_7xo47")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -6.05, 2.055, -7.65)
 
 [node name="stair-bend-01" parent="World" unique_id=789138624 instance=ExtResource("6_6duhy")]
 transform = Transform3D(0.9063078, 0, -0.4226183, 0, 1, 0, 0.4226183, 0, 0.9063078, -16.1, 1.45, -4.35)
@@ -79,11 +71,8 @@ transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -18.5, 2
 [node name="stair-bend-04" parent="World" unique_id=1686395057 instance=ExtResource("6_6duhy")]
 transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, -22.1, 2.95, 4.25)
 
-[node name="checkpoint-02-platform" parent="World" unique_id=232113668 instance=ExtResource("7_imh5h")]
+[node name="checkpoint-02-platform" parent="World" unique_id=232113668 instance=ExtResource("12_xnyp4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.25, 3.2, 2.1)
-
-[node name="checkpoint-02-flag" parent="World" unique_id=1239226984 instance=ExtResource("8_7xo47")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -25.8, 3.705, 2.95)
 
 [node name="snake-drop-01" parent="World" unique_id=2054323495 instance=ExtResource("6_6duhy")]
 transform = Transform3D(0.7660444, 0, 0.6427876, 0, 1, 0, -0.6427876, 0, 0.7660444, -30.1, 3.45, -1.25)
