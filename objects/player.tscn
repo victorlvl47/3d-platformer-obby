@@ -42,6 +42,11 @@ script = ExtResource("1_ffboj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
+[node name="GroundRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+enabled = true
+target_position = Vector3(0, -1.4, 0)
+
 [node name="Character" parent="." instance=ExtResource("2_nero3")]
 
 [node name="Shadow" type="Decal" parent="."]

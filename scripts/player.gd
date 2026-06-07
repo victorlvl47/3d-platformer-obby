@@ -9,6 +9,8 @@ signal coin_collected
 @export var movement_speed = 250
 @export var jump_strength = 7
 @export var allow_double_jump := false
+@export var normal_deceleration := 10.0
+@export var ice_deceleration := 0.03
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -26,6 +28,7 @@ var coins = 0
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
+@onready var ground_ray_cast: RayCast3D = $GroundRayCast
 
 # Functions
 
@@ -46,8 +49,20 @@ func _physics_process(delta):
 	# Movement
 
 	var applied_velocity: Vector3
+	var has_input := movement_velocity.length() > 0.01
 
-	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
+	if has_input:
+		applied_velocity = velocity.lerp(movement_velocity, delta * 10)
+	else:
+		var deceleration := normal_deceleration
+
+		if is_on_ice():
+			deceleration = ice_deceleration
+
+		applied_velocity = velocity
+		applied_velocity.x = move_toward(velocity.x, 0, deceleration)
+		applied_velocity.z = move_toward(velocity.z, 0, deceleration)
+
 	applied_velocity.y = -gravity
 
 	velocity = applied_velocity
@@ -87,7 +102,9 @@ func handle_effects(delta):
 	if is_on_floor():
 		var horizontal_velocity = Vector2(velocity.x, velocity.z)
 		var speed_factor = horizontal_velocity.length() / movement_speed / delta
-		if speed_factor > 0.05:
+		var has_movement_input := Vector2(movement_velocity.x, movement_velocity.z).length() > 0.01
+
+		if speed_factor > 0.05 and has_movement_input:
 			if animation.current_animation != "walk":
 				animation.play("walk", 0.1)
 
@@ -145,6 +162,28 @@ func handle_gravity(delta):
 		jump_single = true
 		jump_double = false
 		gravity = 0
+
+# Surface detection
+
+func is_on_ice() -> bool:
+	if !ground_ray_cast.is_colliding():
+		return false
+
+	var collider := ground_ray_cast.get_collider()
+
+	return is_ice_node(collider)
+
+
+func is_ice_node(node: Object) -> bool:
+	var current := node as Node
+
+	while current != null:
+		if current.is_in_group("ice_platform"):
+			return true
+
+		current = current.get_parent()
+
+	return false
 
 # Jumping
 
