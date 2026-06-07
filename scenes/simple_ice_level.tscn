@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dtu6a6xa3u33d" path="res://objects/checkpoint_platform_large_round.tscn" id="7_2eaxi"]
 [ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="8_5oy8f"]
 [ext_resource type="PackedScene" uid="uid://dtjvjdjl8cs6e" path="res://models/flag.glb" id="9_usdea"]
-[ext_resource type="PackedScene" uid="uid://dqdfevknl3kex" path="res://objects/test_platform.tscn" id="10_7ebnu"]
+[ext_resource type="PackedScene" uid="uid://b62cp4rv4mggo" path="res://objects/test_ice_platform.tscn" id="10_7ebnu"]
 [ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="10_i3btj"]
 [ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_o16bh"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="12_i72rc"]
@@ -81,8 +81,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 3.45, 0)
 [node name="finish-flag" parent="World" unique_id=89158126 instance=ExtResource("9_usdea")]
 transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -46.65, 3.955, 0.85)
 
-[node name="TestPlatform" parent="World" unique_id=975816051 instance=ExtResource("10_7ebnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.002128, 0, -0.32397223)
+[node name="TestIcePlatform" parent="." unique_id=975816051 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4110456, 0, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=448738680]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)

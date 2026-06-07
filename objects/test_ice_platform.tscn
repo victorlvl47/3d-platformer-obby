@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b62cp4rv4mggo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h24md"]
+size = Vector3(8, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h24md"]
+size = Vector3(8, 0.5, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ice_test"]
+albedo_color = Color(0.35, 0.85, 1, 1)
+roughness = 0.12
+emission_enabled = true
+emission = Color(0.05, 0.45, 1, 1)
+emission_energy_multiplier = 0.12
+
+[sub_resource type="LabelSettings" id="LabelSettings_ice_test"]
+font_size = 52
+font_color = Color(0.9, 1, 1, 1)
+outline_size = 8
+outline_color = Color(0.05, 0.2, 0.35, 1)
+
+[node name="TestIcePlatform" type="Node3D" unique_id=975816051]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=724572438]
+mesh = SubResource("BoxMesh_h24md")
+surface_material_override/0 = SubResource("StandardMaterial3D_ice_test")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1555312773 groups=["ice_platform"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1322640543]
+shape = SubResource("BoxShape3D_h24md")
+
+[node name="IceLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.31, 0)
+text = "ICE TEST PLATFORM"
+pixel_size = 0.01
+billboard = 0
+label_settings = SubResource("LabelSettings_ice_test")
