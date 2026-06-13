@@ -53,7 +53,7 @@ func _physics_process(delta):
 
 	if movement_velocity.length() > 0:
 		horizontal_velocity = horizontal_velocity.lerp(movement_velocity, delta * 10)
-	else:
+	elif is_on_floor():
 		var deceleration = ice_deceleration if is_on_ice() else ground_deceleration
 		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, deceleration * delta)
 
