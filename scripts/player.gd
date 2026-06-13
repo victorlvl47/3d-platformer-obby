@@ -97,7 +97,8 @@ func handle_effects(delta):
 	if is_on_floor():
 		var horizontal_velocity = Vector2(velocity.x, velocity.z)
 		var speed_factor = horizontal_velocity.length() / movement_speed / delta
-		if speed_factor > 0.05:
+		var has_movement_input := Vector2(movement_velocity.x, movement_velocity.z).length() > 0.01
+		if speed_factor > 0.05 and has_movement_input:
 			if animation.current_animation != "walk":
 				animation.play("walk", 0.1)
 
