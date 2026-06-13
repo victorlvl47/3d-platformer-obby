@@ -9,6 +9,8 @@ signal coin_collected
 @export var movement_speed = 250
 @export var jump_strength = 7
 @export var allow_double_jump := false
+@export var ground_deceleration := 45.0
+@export var ice_deceleration := 1.2
 
 var movement_velocity: Vector3
 var rotation_direction: float
@@ -26,6 +28,7 @@ var coins = 0
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
+@onready var floor_check = $FloorCheck
 
 # Functions
 
@@ -46,8 +49,15 @@ func _physics_process(delta):
 	# Movement
 
 	var applied_velocity: Vector3
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
 
-	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
+	if movement_velocity.length() > 0:
+		horizontal_velocity = horizontal_velocity.lerp(movement_velocity, delta * 10)
+	else:
+		var deceleration = ice_deceleration if is_on_ice() else ground_deceleration
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, deceleration * delta)
+
+	applied_velocity = horizontal_velocity
 	applied_velocity.y = -gravity
 
 	velocity = applied_velocity
@@ -145,6 +155,31 @@ func handle_gravity(delta):
 		jump_single = true
 		jump_double = false
 		gravity = 0
+
+
+func is_on_ice() -> bool:
+	if not is_on_floor():
+		return false
+
+	floor_check.force_raycast_update()
+
+	if not floor_check.is_colliding():
+		return false
+
+	var collider = floor_check.get_collider()
+	return is_ice_node(collider)
+
+
+func is_ice_node(node: Object) -> bool:
+	var current := node as Node
+
+	while current != null:
+		if current.is_in_group("ice_platform"):
+			return true
+
+		current = current.get_parent()
+
+	return false
 
 # Jumping
 
