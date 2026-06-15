@@ -45,44 +45,41 @@ fov = 40.0
 [node name="start-platform" parent="World" unique_id=426990814 instance=ExtResource("5_k31op")]
 transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 0, 0, 0)
 
-[node name="obstacle-01-platform-01" parent="World" unique_id=1486825096 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.996134, 0, 0.0878512, 0, 1, 0, -0.0878512, 0, 0.996134, -3.5195975, 0, 0)
+[node name="short-normal-platform" parent="World" unique_id=131974603 instance=ExtResource("6_2avul")]
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -3.6, 0, 0)
 
-[node name="obstacle-01-platform-02" parent="World" unique_id=1031141547 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.995121, 0, 0.0986598, 0, 1, 0, -0.0986598, 0, 0.995121, -7.9046946, 0.35400248, -0.3445325)
+[node name="ice-runway-01" parent="World" unique_id=1690117936 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -8.5, 0, 0)
 
-[node name="platform-grass-large-round" parent="World" unique_id=1656211538 instance=ExtResource("7_2eaxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.336241, 1.0222864, 0.11612797)
+[node name="ice-runway-02" parent="World" unique_id=1003759602 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9848077, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848077, -15.5, 0, 0.15)
 
-[node name="obstacle-02-platform-01" parent="World" unique_id=299750118 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9848077, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848077, -16.75, 1.25, 1.75)
+[node name="ice-offset-left" parent="World" unique_id=1772739154 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -22.5, 0.35, -2.25)
 
-[node name="obstacle-02-platform-02" parent="World" unique_id=789138624 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -20.75, 1.6, -1.35)
+[node name="ice-offset-right" parent="World" unique_id=1959815795 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -29.25, 0.7, 2.2)
 
-[node name="obstacle-02-platform-03" parent="World" unique_id=959310697 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -24.75, 1.95, 1.15)
+[node name="checkpoint-ice-platform" parent="World" unique_id=1327489392 instance=ExtResource("7_2eaxi")]
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -35.5, 1, 0)
 
-[node name="checkpoint-02-platform" parent="World" unique_id=437276030 instance=ExtResource("7_2eaxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.25, 2.2, 0)
+[node name="ice-zigzag-01" parent="World" unique_id=447994839 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9063078, 0, -0.4226183, 0, 1, 0, 0.4226183, 0, 0.9063078, -42.5, 1.25, -2.6)
 
-[node name="obstacle-03-platform-01" parent="World" unique_id=1239226984 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9396926, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396926, -33.5, 2.55, -2.15)
+[node name="ice-zigzag-02" parent="World" unique_id=801095476 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9063078, 0, 0.4226183, 0, 1, 0, -0.4226183, 0, 0.9063078, -49.5, 1.5, 2.6)
 
-[node name="obstacle-03-platform-02" parent="World" unique_id=1686395057 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9848077, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848077, -37.75, 2.9, 1.65)
+[node name="ice-zigzag-03" parent="World" unique_id=9660643 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -56.5, 1.8, -1.35)
 
-[node name="obstacle-03-platform-03" parent="World" unique_id=2054323495 instance=ExtResource("6_2avul")]
-transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -42, 3.25, -0.25)
+[node name="ice-slide-jump-platform" parent="World" unique_id=2139060089 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -64.5, 2.05, 0)
 
 [node name="finish-platform" parent="World" unique_id=1485126532 instance=ExtResource("8_5oy8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 3.45, 0)
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -73.5, 2.35, 0)
 
 [node name="finish-flag" parent="World" unique_id=89158126 instance=ExtResource("9_usdea")]
-transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -46.65, 3.955, 0.85)
-
-[node name="TestIcePlatform" parent="." unique_id=975816051 instance=ExtResource("10_7ebnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4110456, 0, 0)
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -73.5, 2.85, 0.85)
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=448738680]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
