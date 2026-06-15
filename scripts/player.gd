@@ -11,11 +11,13 @@ signal coin_collected
 @export var allow_double_jump := false
 @export var ground_deceleration := 45.0
 @export var ice_deceleration := 1.2
+@export var ice_grace_time := 0.3
 
 var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = 0
 var respawn_position: Vector3
+var ice_grace_timer := 0.0
 
 var previously_floored = false
 
@@ -43,6 +45,7 @@ func _physics_process(delta):
 
 	handle_controls(delta)
 	handle_gravity(delta)
+	update_ice_grace_timer(delta)
 
 	handle_effects(delta)
 
@@ -54,7 +57,7 @@ func _physics_process(delta):
 	if movement_velocity.length() > 0:
 		horizontal_velocity = horizontal_velocity.lerp(movement_velocity, delta * 10)
 	elif is_on_floor():
-		var deceleration = ice_deceleration if is_on_ice() else ground_deceleration
+		var deceleration = ice_deceleration if has_ice_momentum() else ground_deceleration
 		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, deceleration * delta)
 
 	applied_velocity = horizontal_velocity
@@ -171,6 +174,17 @@ func is_on_ice() -> bool:
 	return is_ice_node(collider)
 
 
+func update_ice_grace_timer(delta: float) -> void:
+	if is_on_ice():
+		ice_grace_timer = ice_grace_time
+	else:
+		ice_grace_timer = max(ice_grace_timer - delta, 0.0)
+
+
+func has_ice_momentum() -> bool:
+	return ice_grace_timer > 0.0
+
+
 func is_ice_node(node: Object) -> bool:
 	var current := node as Node
 
@@ -208,6 +222,7 @@ func respawn() -> void:
 	velocity = Vector3.ZERO
 	movement_velocity = Vector3.ZERO
 	gravity = 0
+	ice_grace_timer = 0.0
 	jump_single = true
 	jump_double = false
 	previously_floored = false
