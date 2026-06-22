@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://dhkyerc8a8b8"]
+
+[ext_resource type="Script" uid="uid://djpme521r3cxe" path="res://scripts/main.gd" id="1_6mh70"]
+[ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="2_7ebnu"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="3_in4a6"]
+[ext_resource type="Script" uid="uid://bcg2kkbsnttec" path="res://scripts/view.gd" id="4_apsur"]
+[ext_resource type="PackedScene" uid="uid://cnymdajj1vsqm" path="res://objects/platform.tscn" id="5_k31op"]
+[ext_resource type="PackedScene" uid="uid://rjh4ifidqrfp" path="res://objects/platform_medium.tscn" id="6_2avul"]
+[ext_resource type="PackedScene" uid="uid://dtu6a6xa3u33d" path="res://objects/checkpoint_platform_large_round.tscn" id="7_2eaxi"]
+[ext_resource type="PackedScene" uid="uid://uqr4hswv6d2g" path="res://objects/platform_grass_large_round.tscn" id="8_5oy8f"]
+[ext_resource type="PackedScene" uid="uid://dtjvjdjl8cs6e" path="res://models/flag.glb" id="9_usdea"]
+[ext_resource type="PackedScene" uid="uid://b62cp4rv4mggo" path="res://objects/test_ice_platform.tscn" id="10_7ebnu"]
+[ext_resource type="Script" uid="uid://bap462su1xjtx" path="res://scripts/hud.gd" id="10_i3btj"]
+[ext_resource type="Texture2D" uid="uid://cd7oyc56ehkx1" path="res://sprites/coin.png" id="11_o16bh"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="12_i72rc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38ys3"]
+font = ExtResource("12_i72rc")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node3D" unique_id=400720935]
+script = ExtResource("1_6mh70")
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=467504846]
+environment = ExtResource("2_7ebnu")
+
+[node name="Player" parent="." unique_id=4354315 node_paths=PackedStringArray("view") groups=["player"] instance=ExtResource("3_in4a6")]
+transform = Transform3D(-0.22228025, 0, -0.9749828, 0, 1, 0, 0.9749828, 0, -0.22228025, 0, 0.49277484, 0)
+view = NodePath("../View")
+
+[node name="View" type="Node3D" parent="." unique_id=1942915741 node_paths=PackedStringArray("target")]
+transform = Transform3D(0.707107, -0.298836, 0.640856, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640856, 0, 0, 0)
+script = ExtResource("4_apsur")
+target = NodePath("../Player")
+
+[node name="Camera" type="Camera3D" parent="View" unique_id=285819789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+current = true
+fov = 40.0
+
+[node name="World" type="Node3D" parent="." unique_id=937389620]
+
+[node name="start-platform" parent="World" unique_id=426990814 instance=ExtResource("5_k31op")]
+transform = Transform3D(0.993085, 0, -0.117399, 0, 1, 0, 0.117399, 0, 0.993085, 0, 0, 0)
+
+[node name="short-normal-platform" parent="World" unique_id=131974603 instance=ExtResource("6_2avul")]
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -3.6, 0, 0)
+
+[node name="ice-runway-01" parent="World" unique_id=1690117936 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -8.5, 0, 0)
+
+[node name="ice-runway-02" parent="World" unique_id=1003759602 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9848077, 0, 0.1736482, 0, 1, 0, -0.1736482, 0, 0.9848077, -15.5, 0, 0.15)
+
+[node name="ice-offset-left" parent="World" unique_id=1772739154 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -22.5, 0.35, -2.25)
+
+[node name="ice-offset-right" parent="World" unique_id=1959815795 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9396926, 0, 0.3420201, 0, 1, 0, -0.3420201, 0, 0.9396926, -29.25, 0.7, 2.2)
+
+[node name="checkpoint-ice-platform" parent="World" unique_id=1327489392 instance=ExtResource("7_2eaxi")]
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -35.5, 1, 0)
+
+[node name="ice-zigzag-01" parent="World" unique_id=447994839 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9063078, 0, -0.4226183, 0, 1, 0, 0.4226183, 0, 0.9063078, -42.5, 1.25, -2.6)
+
+[node name="ice-zigzag-02" parent="World" unique_id=801095476 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9063078, 0, 0.4226183, 0, 1, 0, -0.4226183, 0, 0.9063078, -49.5, 1.5, 2.6)
+
+[node name="ice-zigzag-03" parent="World" unique_id=9660643 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9659258, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659258, -56.5, 1.8, -1.35)
+
+[node name="ice-slide-jump-platform" parent="World" unique_id=2139060089 instance=ExtResource("10_7ebnu")]
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -64.5, 2.05, 0)
+
+[node name="finish-platform" parent="World" unique_id=1485126532 instance=ExtResource("8_5oy8f")]
+transform = Transform3D(0.9961947, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.9961947, -73.5, 2.35, 0)
+
+[node name="finish-flag" parent="World" unique_id=89158126 instance=ExtResource("9_usdea")]
+transform = Transform3D(0.9961947, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.9961947, -73.5, 2.85, 0.85)
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=448738680]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="HUD" type="Control" parent="." unique_id=750762174]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("10_i3btj")
+
+[node name="Icon" type="TextureRect" parent="HUD" unique_id=1950415672]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 313.0
+offset_bottom = 323.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_o16bh")
+
+[node name="x" type="Label" parent="HUD" unique_id=1531690502]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 123.0
+text = "×"
+label_settings = SubResource("LabelSettings_38ys3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Coins" type="Label" parent="HUD" unique_id=1852612121]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 64.0
+offset_right = 368.0
+offset_bottom = 123.0
+text = "0"
+label_settings = SubResource("LabelSettings_38ys3")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="coin_collected" from="Player" to="HUD" method="_on_coin_collected"]

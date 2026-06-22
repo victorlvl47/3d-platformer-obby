@@ -9,11 +9,15 @@ signal coin_collected
 @export var movement_speed = 250
 @export var jump_strength = 7
 @export var allow_double_jump := false
+@export var ground_deceleration := 45.0
+@export var ice_deceleration := 1.2
+@export var ice_grace_time := 0.3
 
 var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = 0
 var respawn_position: Vector3
+var ice_grace_timer := 0.0
 
 var previously_floored = false
 
@@ -26,6 +30,7 @@ var coins = 0
 @onready var sound_footsteps = $SoundFootsteps
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
+@onready var floor_check = $FloorCheck
 
 # Functions
 
@@ -40,14 +45,22 @@ func _physics_process(delta):
 
 	handle_controls(delta)
 	handle_gravity(delta)
+	update_ice_grace_timer(delta)
 
 	handle_effects(delta)
 
 	# Movement
 
 	var applied_velocity: Vector3
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
 
-	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
+	if movement_velocity.length() > 0:
+		horizontal_velocity = horizontal_velocity.lerp(movement_velocity, delta * 10)
+	elif is_on_floor():
+		var deceleration = ice_deceleration if has_ice_momentum() else ground_deceleration
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, deceleration * delta)
+
+	applied_velocity = horizontal_velocity
 	applied_velocity.y = -gravity
 
 	velocity = applied_velocity
@@ -87,7 +100,8 @@ func handle_effects(delta):
 	if is_on_floor():
 		var horizontal_velocity = Vector2(velocity.x, velocity.z)
 		var speed_factor = horizontal_velocity.length() / movement_speed / delta
-		if speed_factor > 0.05:
+		var has_movement_input := Vector2(movement_velocity.x, movement_velocity.z).length() > 0.01
+		if speed_factor > 0.05 and has_movement_input:
 			if animation.current_animation != "walk":
 				animation.play("walk", 0.1)
 
@@ -146,6 +160,42 @@ func handle_gravity(delta):
 		jump_double = false
 		gravity = 0
 
+
+func is_on_ice() -> bool:
+	if not is_on_floor():
+		return false
+
+	floor_check.force_raycast_update()
+
+	if not floor_check.is_colliding():
+		return false
+
+	var collider = floor_check.get_collider()
+	return is_ice_node(collider)
+
+
+func update_ice_grace_timer(delta: float) -> void:
+	if is_on_ice():
+		ice_grace_timer = ice_grace_time
+	else:
+		ice_grace_timer = max(ice_grace_timer - delta, 0.0)
+
+
+func has_ice_momentum() -> bool:
+	return ice_grace_timer > 0.0
+
+
+func is_ice_node(node: Object) -> bool:
+	var current := node as Node
+
+	while current != null:
+		if current.is_in_group("ice_platform"):
+			return true
+
+		current = current.get_parent()
+
+	return false
+
 # Jumping
 
 func jump():
@@ -172,6 +222,7 @@ func respawn() -> void:
 	velocity = Vector3.ZERO
 	movement_velocity = Vector3.ZERO
 	gravity = 0
+	ice_grace_timer = 0.0
 	jump_single = true
 	jump_double = false
 	previously_floored = false
