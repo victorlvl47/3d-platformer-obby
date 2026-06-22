@@ -37,6 +37,10 @@ window/stretch/aspect="expand"
 
 movie_writer/movie_file="C:/Users/Kenney/Desktop/video-footage.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ply/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
