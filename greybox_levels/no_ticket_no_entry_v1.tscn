@@ -78,16 +78,16 @@ roughness = 0.8
 albedo_color = Color(0.62, 0.58, 0.48, 1)
 roughness = 0.88
 
-[sub_resource type="StandardMaterial3D" id="Mat_Crane"]
-albedo_color = Color(0.95, 0.82, 0.12, 1)
-roughness = 0.72
-
 [sub_resource type="StandardMaterial3D" id="Mat_RouteMarker"]
 albedo_color = Color(1, 0, 0.55, 1)
 roughness = 0.45
 emission_enabled = true
 emission = Color(1, 0, 0.55, 1)
 emission_energy_multiplier = 0.35
+
+[sub_resource type="StandardMaterial3D" id="Mat_Crane"]
+albedo_color = Color(0.95, 0.82, 0.12, 1)
+roughness = 0.72
 
 [sub_resource type="StandardMaterial3D" id="Mat_WindowExit"]
 albedo_color = Color(0.1, 0.8, 1, 1)
@@ -408,65 +408,390 @@ shape = SubResource("BoxShape_Unit")
 
 [node name="ConstructionSite" type="Node3D" parent="World/Greybox" unique_id=1058272102]
 
-[node name="GB_ConstructionSite_Floor_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=412448436]
+[node name="GB_ConstructionTower_GroundSlab_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1162924200]
 transform = Transform3D(18, 0, 0, 0, 0.5, 0, 0, 0, 22, 36, -0.25, 9)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_Construction")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Floor_01" unique_id=86046869]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_GroundSlab_01" unique_id=1421757610]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Floor_01/StaticBody3D" unique_id=1459953618]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_GroundSlab_01/StaticBody3D" unique_id=1801343400]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_ConstructionSite_DownStep_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1546213361]
-transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 38, 2.75, -2)
+[node name="GB_ConstructionTower_Level_01_PartialSlab" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=2036978773]
+transform = Transform3D(12, 0, 0, 0, 0.5, 0, 0, 0, 10, 34, 2.25, 3)
 mesh = SubResource("BoxMesh_Unit")
-surface_material_override/0 = SubResource("Mat_Curb")
+surface_material_override/0 = SubResource("Mat_Construction")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_01" unique_id=1839540651]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_01_PartialSlab" unique_id=285637318]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_01/StaticBody3D" unique_id=138220426]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_01_PartialSlab/StaticBody3D" unique_id=737964156]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_ConstructionSite_DownStep_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=535387426]
-transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 38, 2, 1)
+[node name="GB_ConstructionTower_Level_02_PartialSlab" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=501799532]
+transform = Transform3D(14, 0, 0, 0, 0.5, 0, 0, 0, 12, 36, 4.75, 8)
 mesh = SubResource("BoxMesh_Unit")
-surface_material_override/0 = SubResource("Mat_Curb")
+surface_material_override/0 = SubResource("Mat_Construction")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_02" unique_id=1732607730]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_02_PartialSlab" unique_id=171307833]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_02/StaticBody3D" unique_id=1321949286]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_02_PartialSlab/StaticBody3D" unique_id=523932476]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_ConstructionSite_DownStep_03" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1969864366]
-transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 38, 1.25, 4)
+[node name="GB_ConstructionTower_Level_03_PartialSlab" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=695282188]
+transform = Transform3D(11, 0, 0, 0, 0.5, 0, 0, 0, 10, 37, 7.25, 10)
 mesh = SubResource("BoxMesh_Unit")
-surface_material_override/0 = SubResource("Mat_Curb")
+surface_material_override/0 = SubResource("Mat_Construction")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_03" unique_id=917389512]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_03_PartialSlab" unique_id=468879363]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_DownStep_03/StaticBody3D" unique_id=452617994]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Level_03_PartialSlab/StaticBody3D" unique_id=1141949212]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_ConstructionSite_Beam_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=125174257]
-transform = Transform3D(12, 0, 0, 0, 0.5, 0, 0, 0, 1, 34, 1.2, 12)
+[node name="GB_ConstructionTower_ExitDeck_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1611550730]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 8, 31, 9.75, 10)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Rooftop")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ExitDeck_01" unique_id=412205854]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ExitDeck_01/StaticBody3D" unique_id=341627375]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Column_SW_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1624870385]
+transform = Transform3D(1, 0, 0, 0, 10.5, 0, 0, 0, 1, 28.5, 5.25, -1.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_SW_01" unique_id=1195027289]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_SW_01/StaticBody3D" unique_id=1063498062]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Column_SE_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1121291413]
+transform = Transform3D(1, 0, 0, 0, 10.5, 0, 0, 0, 1, 43.5, 5.25, -1.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_SE_01" unique_id=2000285613]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_SE_01/StaticBody3D" unique_id=1153026490]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Column_NW_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=165868047]
+transform = Transform3D(1, 0, 0, 0, 10.5, 0, 0, 0, 1, 28.5, 5.25, 18.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_NW_01" unique_id=959471776]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_NW_01/StaticBody3D" unique_id=656202380]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Column_NE_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1635100740]
+transform = Transform3D(1, 0, 0, 0, 10.5, 0, 0, 0, 1, 43.5, 5.25, 18.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_NE_01" unique_id=1837580183]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Column_NE_01/StaticBody3D" unique_id=1239718960]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_MidColumn_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=631052165]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 36, 4, 18)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MidColumn_01" unique_id=1007419920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MidColumn_01/StaticBody3D" unique_id=1441678753]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_EntryBridge_FromParking_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1759356531]
+transform = Transform3D(7, 0, 0, 0, 0.5, 0, 0, 0, 5, 36, 4.75, -1)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Rooftop")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_EntryBridge_FromParking_01" unique_id=1896656979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_EntryBridge_FromParking_01/StaticBody3D" unique_id=581807237]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ScaffoldWalkway_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1011773708]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 13, 28, 5.25, 8)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_Beam")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Beam_01" unique_id=18667923]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ScaffoldWalkway_01" unique_id=1675520414]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Beam_01/StaticBody3D" unique_id=1902248115]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ScaffoldWalkway_01/StaticBody3D" unique_id=1486913191]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_ConstructionSite_Block_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1702318749]
-transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 42, 0.75, 14)
+[node name="GB_ConstructionTower_ScaffoldWalkway_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=721606929]
+transform = Transform3D(12, 0, 0, 0, 0.5, 0, 0, 0, 3, 33, 7.75, 18)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_Beam")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Block_01" unique_id=1437845223]
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ScaffoldWalkway_02" unique_id=1336749519]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionSite_Block_01/StaticBody3D" unique_id=961690636]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ScaffoldWalkway_02/StaticBody3D" unique_id=1818296918]
 shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1619656792]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 42, 0.5, 16)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_01" unique_id=1990985977]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_01/StaticBody3D" unique_id=237552561]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1273043857]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 40, 1.25, 13)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_02" unique_id=184428871]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_02/StaticBody3D" unique_id=1629305341]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_03" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=406436226]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 38, 2, 10)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_03" unique_id=401034557]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_03/StaticBody3D" unique_id=1699818682]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_04" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=114008386]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 36, 2.75, 7)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_04" unique_id=1785407462]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_04/StaticBody3D" unique_id=614850451]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_05" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=553080503]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 34, 3.5, 6)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_05" unique_id=954851945]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_05/StaticBody3D" unique_id=1408127156]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_06" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=302520855]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 32, 4.25, 7)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_06" unique_id=1797017403]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_06/StaticBody3D" unique_id=192704583]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_07" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=2062517135]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 32, 5.5, 11)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_07" unique_id=1474380815]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_07/StaticBody3D" unique_id=1457398402]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_08" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1008130701]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 34, 6.25, 13)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_08" unique_id=1888925689]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_08/StaticBody3D" unique_id=1192186527]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_09" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1482870794]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 36, 7, 15)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_09" unique_id=1622618175]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_09/StaticBody3D" unique_id=461515572]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_10" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1493572730]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 34, 8, 16)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_10" unique_id=1419020112]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_10/StaticBody3D" unique_id=1508530078]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ClimbStep_11" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=904252105]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 32, 8.75, 14)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_11" unique_id=971895431]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ClimbStep_11/StaticBody3D" unique_id=1900773429]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_ToCraneBridge_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1969453088]
+transform = Transform3D(13, 0, 0, 0, 0.5, 0, 0, 0, 3, 22.5, 9.75, 8)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Rooftop")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ToCraneBridge_01" unique_id=994093090]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_ToCraneBridge_01/StaticBody3D" unique_id=1544472754]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_CraneStep_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1476122914]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 18, 10.75, 8)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Curb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_CraneStep_01" unique_id=557246162]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_CraneStep_01/StaticBody3D" unique_id=2084701779]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Beam_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=801013476]
+transform = Transform3D(16, 0, 0, 0, 0.35, 0, 0, 0, 0.75, 36, 2.9, 18.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Beam")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_01" unique_id=1607161955]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_01/StaticBody3D" unique_id=1485095301]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Beam_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1618489763]
+transform = Transform3D(0.75, 0, 0, 0, 0.35, 0, 0, 0, 20, 43.5, 5.4, 8.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Beam")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_02" unique_id=966971567]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_02/StaticBody3D" unique_id=1995183321]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Beam_03" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1700458729]
+transform = Transform3D(14, 0, 0, 0, 0.35, 0, 0, 0, 0.75, 35, 7.9, -1.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Beam")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_03" unique_id=840231350]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Beam_03/StaticBody3D" unique_id=655952475]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_SafetyBarrier_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=572921789]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 0.35, 36, 0.5, 19)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Blocker")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_01" unique_id=1423392719]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_01/StaticBody3D" unique_id=1755338039]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_SafetyBarrier_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=308953496]
+transform = Transform3D(0.35, 0, 0, 0, 1, 0, 0, 0, 6, 44, 5.5, 8)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Blocker")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_02" unique_id=1915770098]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_02/StaticBody3D" unique_id=598011760]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_SafetyBarrier_03" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1523694312]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 0.35, 33, 8, 19.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Blocker")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_03" unique_id=1731983927]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_SafetyBarrier_03/StaticBody3D" unique_id=902754780]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_MaterialStack_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1596943486]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 41, 0.75, 13)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Beam")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MaterialStack_01" unique_id=268340834]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MaterialStack_01/StaticBody3D" unique_id=502261930]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_MaterialStack_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=2067579722]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 31, 0.5, 16)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_ParkingTower")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MaterialStack_02" unique_id=1979288534]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_MaterialStack_02/StaticBody3D" unique_id=1158709678]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Crate_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=411886059]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 39, 5.5, 4)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_CarYellow")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Crate_01" unique_id=454985450]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Crate_01/StaticBody3D" unique_id=913800672]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Crate_02" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=733651887]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 30, 8.25, 7)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_CarBlue")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Crate_02" unique_id=242838473]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Crate_02/StaticBody3D" unique_id=1232528291]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_Pallet_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=120245867]
+transform = Transform3D(4, 0, 0, 0, 0.3, 0, 0, 0, 2, 33, 0.15, 1)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_Beam")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Pallet_01" unique_id=1118761575]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/ConstructionSite/GB_ConstructionTower_Pallet_01/StaticBody3D" unique_id=1115062959]
+shape = SubResource("BoxShape_Unit")
+
+[node name="GB_ConstructionTower_MissingWallMarker_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1087681919]
+transform = Transform3D(4, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 40, 7.75, 14.5)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_RouteMarker")
+
+[node name="GB_ConstructionTower_RouteMarker_Up_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=1425783751]
+transform = Transform3D(1, 0, 0, 0, 7.5, 0, 0, 0, 1, 33, 4.25, 12)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_RouteMarker")
+
+[node name="GB_ConstructionTower_RouteMarker_ToCrane_01" type="MeshInstance3D" parent="World/Greybox/ConstructionSite" unique_id=99498586]
+transform = Transform3D(14, 0, 0, 0, 0.25, 0, 0, 0, 1, 25, 10.25, 8)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_RouteMarker")
 
 [node name="TowerCrane" type="Node3D" parent="World/Greybox" unique_id=459995550]
 
@@ -745,12 +1070,22 @@ mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_RouteMarker")
 
 [node name="GB_RouteMarker_06_Construction" type="MeshInstance3D" parent="World/Greybox/RouteMarkers" unique_id=1428643159]
-transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 12, 39, 0.125, 6)
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 17, 36, 5.125, 6)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_RouteMarker")
+
+[node name="GB_RouteMarker_06B_ConstructionUp" type="MeshInstance3D" parent="World/Greybox/RouteMarkers" unique_id=1624998186]
+transform = Transform3D(1.25, 0, 0, 0, 8, 0, 0, 0, 1.25, 33, 4.25, 13)
+mesh = SubResource("BoxMesh_Unit")
+surface_material_override/0 = SubResource("Mat_RouteMarker")
+
+[node name="GB_RouteMarker_06C_ConstructionExit" type="MeshInstance3D" parent="World/Greybox/RouteMarkers" unique_id=1381811972]
+transform = Transform3D(14, 0, 0, 0, 0.25, 0, 0, 0, 1, 25, 10.25, 8)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_RouteMarker")
 
 [node name="GB_RouteMarker_07_TowerCrane" type="MeshInstance3D" parent="World/Greybox/RouteMarkers" unique_id=448868353]
-transform = Transform3D(22, 0, 0, 0, 0.25, 0, 0, 0, 1, 27, 0.125, 16)
+transform = Transform3D(9, 0, 0, 0, 0.25, 0, 0, 0, 1, 18, 11.125, 8)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_RouteMarker")
 
@@ -807,7 +1142,7 @@ surface_material_override/0 = SubResource("Mat_Checkpoint")
 shape = SubResource("BoxShape_Unit")
 
 [node name="GB_Checkpoint_05_ConstructionSite" type="MeshInstance3D" parent="World/Greybox/RouteMarkers/Checkpoints" unique_id=1597093180]
-transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 36, 1, 15)
+transform = Transform3D(1.5, 0, 0, 0, 2, 0, 0, 0, 1.5, 36, 6, 8)
 mesh = SubResource("BoxMesh_Unit")
 surface_material_override/0 = SubResource("Mat_Checkpoint")
 
@@ -922,11 +1257,51 @@ font = ExtResource("17_e4ysl")
 font_size = 64
 
 [node name="Label_CONSTRUCTION_SITE" type="Label3D" parent="World/Greybox/Labels" unique_id=1655741793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 1.7, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 11.5, 9)
 pixel_size = 0.043
 billboard = 1
 no_depth_test = true
-text = "CONSTRUCTION SITE"
+text = "CONSTRUCTION TOWER"
+font = ExtResource("17_e4ysl")
+font_size = 64
+
+[node name="Label_CONSTRUCTION_SCAFFOLDING" type="Label3D" parent="World/Greybox/Labels" unique_id=166518848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 6.5, 8)
+pixel_size = 0.032
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0.85, 0.25, 1)
+text = "SCAFFOLDING"
+font = ExtResource("17_e4ysl")
+font_size = 64
+
+[node name="Label_CONSTRUCTION_UP" type="Label3D" parent="World/Greybox/Labels" unique_id=409844587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 8.5, 14)
+pixel_size = 0.035
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0, 0.55, 1)
+text = "UP"
+font = ExtResource("17_e4ysl")
+font_size = 64
+
+[node name="Label_CONSTRUCTION_TO_CRANE" type="Label3D" parent="World/Greybox/Labels" unique_id=989674246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 11, 8)
+pixel_size = 0.035
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0, 0.55, 1)
+text = "TO CRANE"
+font = ExtResource("17_e4ysl")
+font_size = 64
+
+[node name="Label_CONSTRUCTION_BEAMS" type="Label3D" parent="World/Greybox/Labels" unique_id=449344993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 7, 3)
+pixel_size = 0.032
+billboard = 1
+no_depth_test = true
+modulate = Color(1, 0.85, 0.25, 1)
+text = "BEAMS"
 font = ExtResource("17_e4ysl")
 font_size = 64
 
