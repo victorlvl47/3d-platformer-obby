@@ -230,16 +230,6 @@ surface_material_override/0 = SubResource("Mat_Building")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/Alley/GB_Alley_Wall_Left_01/StaticBody3D" unique_id=1947619578]
 shape = SubResource("BoxShape_Unit")
 
-[node name="GB_Alley_Wall_Right_01" type="MeshInstance3D" parent="World/Greybox/Alley" unique_id=1791303202]
-transform = Transform3D(1.5, 0, 0, 0, 4, 0, 0, 0, 48, -29.25, 2, -5)
-mesh = SubResource("BoxMesh_Unit")
-surface_material_override/0 = SubResource("Mat_Building")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/Alley/GB_Alley_Wall_Right_01" unique_id=1628761784]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/Alley/GB_Alley_Wall_Right_01/StaticBody3D" unique_id=1979577084]
-shape = SubResource("BoxShape_Unit")
-
 [node name="GB_Alley_Crate_01" type="MeshInstance3D" parent="World/Greybox/Alley" unique_id=507103362]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 2, -37.5, 0.375, 10)
 mesh = SubResource("BoxMesh_Unit")
