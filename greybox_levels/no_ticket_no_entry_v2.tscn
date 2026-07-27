@@ -125,6 +125,9 @@ face_edges = PackedInt32Array(11, 0, 4, 5, 6, 7)
 face_surfaces = PackedInt32Array(0, 0, 0, 0, 0, 0)
 face_colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5p35"]
+size = Vector3(32, 31.645, 24)
+
 [sub_resource type="LabelSettings" id="LabelSettings_phg8g"]
 font = ExtResource("4_5k8v6")
 font_size = 48
@@ -137,7 +140,7 @@ shadow_offset = Vector2(2, 2)
 environment = ExtResource("1_l7mwj")
 
 [node name="Player" parent="." unique_id=331249804 node_paths=PackedStringArray("view") instance=ExtResource("2_xlpxm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.706013, 42.385086, 29.601385)
 view = NodePath("../View")
 
 [node name="View" type="Node3D" parent="." unique_id=1416688738 node_paths=PackedStringArray("target")]
@@ -1149,6 +1152,12 @@ script = ExtResource("5_b5p35")
 ply_mesh = SubResource("Resource_b5p35")
 materials = Array[Material]([ExtResource("7_2uwxt"), ExtResource("8_afga1"), ExtResource("9_nl21k"), ExtResource("10_am5ws"), ExtResource("11_p10yb"), ExtResource("12_g38rv"), ExtResource("13_vy0b1"), ExtResource("14_u2dut"), ExtResource("15_pa3ij")])
 metadata/_custom_type_script = "uid://bp4x41afjd0l1"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Greybox/MainBuilding" unique_id=1888235203]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Greybox/MainBuilding/StaticBody3D" unique_id=1711925570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 15.8, 0)
+shape = SubResource("BoxShape3D_b5p35")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1967097842]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
